@@ -1,0 +1,6 @@
+{
+  "before": [
+    "npm test",
+    "npx nsp check"
+  ]
+}
