@@ -1,7 +1,7 @@
-import {SakuraApi} from '@sakuraapi/api';
+import {SakuraApi} from '@sakuraapi/core';
 
 import * as helmet from 'helmet';
-import {sign} from 'jsonwebtoken';
+import {sign}      from 'jsonwebtoken';
 import bodyParser = require('body-parser');
 
 export const baseUri = '/testApi';

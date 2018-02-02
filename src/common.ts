@@ -1,9 +1,25 @@
-import {SakuraApi} from '@sakuraapi/api';
-import {createCipheriv, createDecipheriv, createHmac, randomBytes} from 'crypto';
-import {Handler, Request, Response} from 'express';
-import {decode as decodeToken, sign as signToken} from 'jsonwebtoken';
-import {decode as urlBase64Decode, encode as urlBase64Encode, validate as urlBase64Validate} from 'urlsafe-base64';
-import * as uuid from 'uuid';
+import {SakuraApi}     from '@sakuraapi/core';
+import {
+  createCipheriv,
+  createDecipheriv,
+  createHmac,
+  randomBytes
+}                      from 'crypto';
+import {
+  Handler,
+  Request,
+  Response
+}                      from 'express';
+import {
+  decode as decodeToken,
+  sign as signToken
+}                      from 'jsonwebtoken';
+import {
+  decode as urlBase64Decode,
+  encode as urlBase64Encode,
+  validate as urlBase64Validate
+}                      from 'urlsafe-base64';
+import * as uuid       from 'uuid';
 import * as pwStrength from 'zxcvbn';
 
 

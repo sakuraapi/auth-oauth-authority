@@ -1,14 +1,36 @@
 import {
-  Db, IRoutableLocals, Json, Model, Routable, Route, SakuraApi, SakuraApiModel, SakuraApiPluginResult,
-  SakuraApiRoutable
-} from '@sakuraapi/api';
-import {hash as bcryptHash} from 'bcrypt';
-import {ObjectID} from 'bson';
-import {NextFunction, Request, Response} from 'express';
+  Db,
+  IRoutableLocals,
+  Json,
+  Model,
+  Routable,
+  Route,
+  SakuraApi,
+  SakuraApiPluginResult,
+  SapiModelMixin,
+  SapiRoutableMixin
+}                            from '@sakuraapi/core';
+import {hash as bcryptHash}  from 'bcrypt';
+import {ObjectID}            from 'bson';
+import {
+  NextFunction,
+  Request,
+  Response
+}                            from 'express';
 import * as generatePassword from 'generate-password';
-import * as request from 'request-promise-native';
-import {encryptToken, getPasswordStrength, IAuthorityOptions, JwtToken} from './common';
-import {BAD_REQUEST, OK, SERVER_ERROR, UNAUTHORIZED} from './http-status';
+import * as request          from 'request-promise-native';
+import {
+  encryptToken,
+  getPasswordStrength,
+  IAuthorityOptions,
+  JwtToken
+}                            from './common';
+import {
+  BAD_REQUEST,
+  OK,
+  SERVER_ERROR,
+  UNAUTHORIZED
+}                            from './http-status';
 
 
 export interface IExpressParams {
@@ -248,7 +270,7 @@ export function addOAuthAuthenticationAuthority(sapi: SakuraApi, options: IAuthe
       promiscuous: true
     }
   })
-  class OAuthAuthenticationAuthorityUser extends SakuraApiModel {
+  class OAuthAuthenticationAuthorityUser extends SapiModelMixin() {
     @Db(fields.domainDb) @Json(fields.domainJson)
     domain: string = options.defaultDomain;
 
@@ -279,7 +301,7 @@ export function addOAuthAuthenticationAuthority(sapi: SakuraApi, options: IAuthe
       promiscuous: true
     }
   })
-  class AuthenticationLog extends SakuraApiModel {
+  class AuthenticationLog extends SapiModelMixin() {
     @Db('uid') @Json()
     userId: ObjectID;
 
@@ -321,7 +343,7 @@ export function addOAuthAuthenticationAuthority(sapi: SakuraApi, options: IAuthe
     model: OAuthAuthenticationAuthorityUser,
     suppressApi: true
   })
-  class AuthenticationOAuthAuthorityApi extends SakuraApiRoutable {
+  class AuthenticationOAuthAuthorityApi extends SapiRoutableMixin() {
 
     /**
      * Login/create user
