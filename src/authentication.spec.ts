@@ -1,11 +1,17 @@
 import {addAuthenticationAuthority} from '@sakuraapi/auth-native-authority/lib/src';
-import {ObjectID} from 'bson';
-import {decode} from 'jsonwebtoken';
-import * as reqMock from 'request-promise-native';
-import * as request from 'supertest';
-import {dbs} from '../spec/config/dbs';
-import {testSapi, testUrl} from '../spec/helpers/sakura-api';
-import {addOAuthAuthenticationAuthority, IAuthenticationOAuthAuthorityOptions} from './authentication';
+import {ObjectID}                   from 'bson';
+import {decode}                     from 'jsonwebtoken';
+import * as reqMock                 from 'request-promise-native';
+import * as request                 from 'supertest';
+import {dbs}                        from '../spec/config/dbs';
+import {
+  testSapi,
+  testUrl
+}                                   from '../spec/helpers/sakura-api';
+import {
+  addOAuthAuthenticationAuthority,
+  IAuthenticationOAuthAuthorityOptions
+}                                   from './authentication';
 
 /**
  * Developer Notes:

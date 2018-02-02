@@ -1,5 +1,8 @@
 import SuiteInfo = jasmine.SuiteInfo;
-import {DisplayProcessor, SpecReporter} from 'jasmine-spec-reporter';
+import {
+  DisplayProcessor,
+  SpecReporter
+} from 'jasmine-spec-reporter';
 import 'source-map-support/register';
 
 localReporter();
