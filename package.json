@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@sakuraapi/core": "^0.11.0",
-    "bcrypt": "^1.0.2",
+    "bcrypt": "^1.0.3",
     "body-parser": "^1.17.1",
     "colors": "^1.2.1",
     "cors": "^2.8.3",
